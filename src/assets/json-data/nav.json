@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Početna",
+        "link" : "home",
+        "title": "Pocetna"
+    },
+    {
+        "name": "Postovi",
+        "link" : "/posts",
+        "title": "Postovi"
+    },
+    {
+        "name": "Dodaj Post",
+        "link" : "/add-post",
+        "title": "Dodaj Post"
+    },
+    {
+        "name": "Autor",
+        "link" : "/about",
+        "title": "Autor"
+    }
+]

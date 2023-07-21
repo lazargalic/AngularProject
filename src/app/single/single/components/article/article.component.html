@@ -1,0 +1,120 @@
+<article class="type-post">
+
+
+
+    
+    <div class="loading-spinner"></div>
+
+
+
+    <!-- Entry Cover -->
+    <div class="entry-cover">
+        <a ><img src="{{apiUrl}}{{myPost.mainPicturePath}}" alt="Post" class="slikaProfilna" /></a>
+        <div class="entry-meta"><a  title="Lifestyle">{{myPost.author.fistName + ' ' + myPost.author.lastName}}</a></div>
+    </div><!-- Entry Cover /- -->
+
+    <div class="entry-content">
+        <h3 class="entry-title"><a href="#" title="Our Writers Understand Lifestyle">{{myPost.nameArticle}}</a></h3>
+        <div class="post-meta">
+            <span><a href="#"><i class="fa fa-user"></i>{{myPost.author.email}}</a></span>
+            <span><a href="#"><i class="fa fa-clock-o"></i> {{myPost.beggin | samoDatumPipe }} / {{myPost.end | samoDatumPipe   }}</a></span>
+            <span><a><i class="fa fa-map-marker"></i>{{myPost.township.nameCountry | uppercase}}</a></span>
+            <span><a ><i class="fa fa-comment"></i>Komentarisite</a></span>
+ 
+        </div>
+        <p>{{myPost.description}}</p>
+        <div class="blog-detail">
+            <div class="blog-detail medium-font pb-5-lazar">
+                <blockquote>
+                    <p>{{myPost.quote}}</p>
+                </blockquote>
+                <p>{{myPost.additionalDescription}}</p>
+            </div>
+        </div>
+        <!--<ul>
+            <li>Authoritatively customize high standards in alignments vis-a-vis process-centric resources. partnerships vis-a-vis efficient users.</li>
+            <li>Competently engineer intuitive content via effective deliverables. Completely maximize extensible bandwidth before seamless.</li>
+            <li>Phosfluorescently seize prospective users after market-driven results. Collaboratively optimize market-driven than real-time data.</li>
+            <li>Dynamically initiate equity invested networks with cross-unit systems. Holisticly streamline interactive market positioning benefits. </li>
+        </ul> -->
+        <p>{{myPost.mainContent}}</p>
+        <div class="entry-footer">
+            <div class="tags">
+                <span class="fa">Reakcije : </span>
+                <span class="bigger-font"> 
+                    <a *ngIf="existUserReaction!=2" (click)="react(2)"  title="Reaction2"><i class="fa fa-heart"> {{myPost.emotions.love.length}}</i></a>
+                    <a *ngIf="existUserReaction==2" (click)="unreact(2)" title="Reaction2"><i class="fa fa-heart color-reacted"> {{myPost.emotions.love.length}}</i></a>
+                    &nbsp;
+
+                    <a *ngIf="existUserReaction!=1" (click)="react(1)"  title="Reaction1"><i class="fa fa-fire"> {{myPost.emotions.fire.length }}</i> </a>
+                    <a *ngIf="existUserReaction==1" (click)="unreact(1)" title="Reaction1"><i class="fa fa-fire color-reacted"> {{myPost.emotions.fire.length }}</i> </a>
+                    &nbsp;
+
+                    <a *ngIf="existUserReaction!=3" (click)="react(3)" title="Reaction3"><i class="fa fa-thumbs-down"> {{myPost.emotions.dislike.length  }} </i></a>
+                    <a *ngIf="existUserReaction==3" (click)="unreact(3)" title="Reaction3"><i class="fa fa-thumbs-down color-reacted"> {{myPost.emotions.dislike.length }} </i></a>
+                    &nbsp;
+                </span>
+                <p *ngIf="!isLoggedIn">Uloguj se da ostavis reakciju</p>
+            </div>
+            <ul>
+                <li><a href=""  > Sva prava zadrzava: {{myPost.author.fistName + ' ' + myPost.author.lastName  }}</a></li>
+                <!--<li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
+                <li><a href="#" title="Skype"><i class="fa fa-skype"></i></a></li>-->
+            </ul>
+                <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Pogledaj Reakcije</button>
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Reakcije</h4>
+                </div>
+                
+                <div class="modal-body">
+                    <p><i class="fa fa-heart"></i> Svidja se:</p>
+                    <ng-container *ngFor="let love of myPost.emotions.love">
+                        <p>-{{love}}</p>
+                    </ng-container>
+                    <hr/>
+                    <p><i class="fa fa-fire"></i> Iznenadjen:</p>
+                    <ng-container *ngFor="let love of myPost.emotions.fire">
+                        <p>-{{love}}</p>
+                    </ng-container>
+                    <hr/>
+                    <p><i class="fa fa-thumbs-down"></i> Ne svidja se:</p>
+                    <ng-container *ngFor="let love of myPost.emotions.dislike">
+                        <p>-{{love}}</p>
+                    </ng-container>
+                    <hr/>
+                    
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Zatvori</button>
+                </div>
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+        
+    </div>
+    <!--<div class="about-author">								
+        <i><img src="http://placehold.it/105x108" alt="Author"></i>
+        <h3>Robert Godwin</h3>
+        <p>Efficiently reintermediate distinctive leadership through backend potentialities. Compellingly incentivize granular without standardized e-tailers. Efficiently reintermediate distinctive leadership through backend potentialities. e-tailers.</p>
+        <ul>
+            <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
+            <li><a href="#" title="Skype"><i class="fa fa-skype"></i></a></li>
+        </ul>
+    </div>-->
+
+</article>

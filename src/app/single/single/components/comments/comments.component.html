@@ -1,0 +1,104 @@
+                        <!-- Comment Form -->
+                        <div  *ngIf="isLoggedIn" id="respond" class="comment-respond div-mb">
+                            <h2 class="comment-reply-title">Ostavite komentar</h2>
+                            <form [formGroup]="replyForm2">
+                                <textarea class="reply-textarea" formControlName="replyContent" placeholder="Odgovori na komentar"></textarea>
+                                <div *ngIf="replyForm2.controls['replyContent'].hasError('required') && replyForm2.controls['replyContent'].touched" class="error-message2">
+                                    Komentar ne sme biti prazan.
+                                </div>
+                                <button type="button" (click)="postReply(replyForm2, null, myPost.id )" class="submit-reply-button">Postavi komentar</button>
+                            </form>
+                        </div> 
+                        
+                        
+                        <div *ngIf="!isLoggedIn" id="respond" class="comment-respond div-mb">
+                            <h2 class="comment-reply-title">Ulogujte se da biste ostavili komentar!  <a (click)="scrollTop()" title="Početna">Uloguj se ovde. </a> </h2>
+                        </div> 
+
+                        
+                        <!-- Comment Area -->
+                        <div #comments class="comments-area">
+                            <h2 class="comments-title">Komentari: {{numberComment }} </h2>
+                            <div class="comment-block">
+                            
+                            <ng-container  *ngFor="let com of myPost.comments">
+
+                                <ol class="comment-list">
+                                    <hr/>
+                                
+                                    <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
+                                        
+                                        <div class="comment-body pblazar">
+                                            <footer class="comment-meta">
+                                                <div class="comment-author vcard">
+                                                    <img alt="img" src="assets/images/author/anonymous.png" class="avatar avatar-72 photo"/>
+                                                    <b class="fn">{{com.user}}</b>
+                                                </div>
+                                                <div class="comment-metadata">
+                                                    <a href="#">{{com.date}}</a>										
+                                                </div>
+                                                <div class="reply" *ngIf="isLoggedIn">
+                                                    <a rel="nofollow" id="ico-replay-{{com.idComment}}" class="comment-reply-link" (click)="showReplyComment(com.idComment)"><i class="fa fa-reply"></i></a>
+                                                    <a rel="nofollow" id="ico-close-{{com.idComment}}" class="comment-reply-link hide-el" (click)="hideReplyComment(com.idComment)"><i class="fa fa-close"></i></a>
+                                                    <a rel="nofollow" id="ico-delete-{{com.idComment}}" class="lg-pl-x comment-reply-link "
+                                                        *ngIf="isAdmin || com.userId==loggedUserId"
+                                                        (click)="openDeleteDialog(com)"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </footer>
+                                            <div class="comment-content">
+                                                <p>{{com.content}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div id="reply-{{com.idComment}}" class="comment-reply-form hide-el">
+                                            <form [formGroup]="replyForm">
+                                              <textarea class="reply-textarea" formControlName="replyContent" placeholder="Odgovori na komentar"></textarea>
+                                              <div *ngIf="replyForm.controls['replyContent'].hasError('required') && replyForm.controls['replyContent'].touched" class="error-message2">
+                                                Komentar ne sme biti prazan.
+                                              </div>
+                                              <button type="button" (click)="postReply(replyForm, com.idComment, myPost.id )" class="submit-reply-button">Postavi komentar</button>
+                                            </form>
+                                        </div>
+                                          
+
+
+                                    <ng-container *ngIf="com.childCommentts.length > 0">
+                                        <ng-container *ngFor=" let com of com.childCommentts"> 
+                                            <ol class="children bezi-desno">
+                                                <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+                                                    <div class="comment-body pblazar">
+                                                        <footer class="comment-meta">
+                                                            <div class="comment-author vcard">
+                                                                <img alt="img" src="assets/images/author/anonymous.png" class=" avatar avatar-72 photo"/>
+                                                                <b class="fn">{{com.user}}</b>
+                                                            </div>
+                                                            <div class="comment-metadata">
+                                                                <a href="#">{{com.date}}</a>
+                                                            </div>
+                                                            <div class="reply">
+                                                                <a rel="nofollow" id="ico-delete-{{com.idComment}}" class="lg-ml-x  comment-reply-link "
+                                                                *ngIf="isAdmin || com.userId==loggedUserId"
+                                                                    (click)="openDeleteDialog(com)"><i class="fa fa-trash"></i></a>
+                                                            </div>  
+                                                        </footer>
+                                                        <div class="comment-content">
+                                                            <p>{{com.content}}</p>
+                                                        </div>
+ 
+ 
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </ng-container>
+                                    </ng-container>
+                                </li>
+ 
+                                </ol><!-- .comment-list -->
+                            </ng-container>
+                            </div>
+                           
+                           
+ 
+
+                            <!-- Comment Form /- -->
+              </div><!-- Comment Area -->

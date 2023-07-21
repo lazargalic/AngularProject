@@ -1,0 +1,187 @@
+		<main class="site-main">
+			
+			<!-- Content Block -->
+			<div class="container-fluid no-left-padding no-right-padding contact-section">
+				<!-- Container -->
+				<div class="container">
+					<!-- Row -->
+					<div class="row" >
+						<form [formGroup]="formazadodavanjeForm" (ngSubmit)="submitForm()">
+							<h2>Dodaj novu objavu</h2>
+						  
+						
+							<div class="form-group">
+							  <label for="nameArticle">Ime objave</label>
+							  <input type="text" id="nameArticle" formControlName="nameArticle" required>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('nameArticle').invalid && (formazadodavanjeForm.get('nameArticle').dirty || formazadodavanjeForm.get('nameArticle').touched)">
+								<div *ngIf="formazadodavanjeForm.get('nameArticle').hasError('required')">Ime je obavezno polje.</div>
+								<div *ngIf="formazadodavanjeForm.get('nameArticle').hasError('minlength')">Ime ne sme biti kraće od 2 karaktera.</div>
+								<div *ngIf="formazadodavanjeForm.get('nameArticle').hasError('maxlength')">Ime ne sme biti duže od 80 karaktera.</div>
+							  </div>
+
+							</div>
+						  
+							<div class="form-group">
+							  <label for="mainPicturePath">Glavna slika</label>
+							  
+							  <input type="file" id="mainPicturePath" (change)="handleMainPictureChange($event)" required>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('mainPicturePath').invalid && (formazadodavanjeForm.get('mainPicturePath').dirty || formazadodavanjeForm.get('mainPicturePath').touched)">
+								<div *ngIf="formazadodavanjeForm.get('mainPicturePath').hasError('required')">Glavna slika je obavezna.</div>
+							  </div>
+							</div>
+					 
+							<div class="form-group">
+							  <label for="description">Opis (Kratki)</label>
+							  <textarea id="description" formControlName="description" required></textarea>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('description').invalid && (formazadodavanjeForm.get('description').dirty || formazadodavanjeForm.get('description').touched)">
+								<div *ngIf="formazadodavanjeForm.get('description').hasError('required')">Opis je obavezan.</div>
+								<div *ngIf="formazadodavanjeForm.get('description').hasError('minlength')">Opis ne sme biti kraći od 1 karaktera.</div>
+								<div *ngIf="formazadodavanjeForm.get('description').hasError('maxlength')">Opis ne sme biti duži od 745 karaktera.</div>
+							  </div>
+		
+
+							</div>
+				 
+							<div class="form-group">
+								<label for="mainContentDescription">Glavni opis  <span class="optionSpan"> &#42;Opciono </span> </label>
+								<textarea id="mainContentDescription" formControlName="mainContent"></textarea>
+								<div class="error-message" *ngIf="formazadodavanjeForm.get('mainContent').invalid && (formazadodavanjeForm.get('mainContent').dirty || formazadodavanjeForm.get('mainContent').touched)">
+								  <div *ngIf="formazadodavanjeForm.get('mainContent').hasError('maxlength')">Glavni Opis ne sme biti duži od 3000 karaktera.</div>
+								</div>
+							  </div>
+
+
+							<div class="form-group">
+							  <label for="additionalDescription">Dodatni opis <span class="optionSpan"> &#42;Opciono </span></label>
+							  <textarea id="additionalDescription" formControlName="additionalDescription"></textarea>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('additionalDescription').invalid && (formazadodavanjeForm.get('additionalDescription').dirty || formazadodavanjeForm.get('additionalDescription').touched)">
+								<div *ngIf="formazadodavanjeForm.get('additionalDescription').hasError('maxlength')">Opis ne sme biti duži od 445 karaktera.</div>
+							  </div>
+							</div>
+					 
+							<div class="form-group">
+							  <label for="quote">Citat   <span class="optionSpan"> &#42;Opciono </span> </label>
+							  <textarea id="quote" formControlName="quote"></textarea>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('quote').invalid && (formazadodavanjeForm.get('quote').dirty || formazadodavanjeForm.get('quote').touched)">
+								<div *ngIf="formazadodavanjeForm.get('quote').hasError('maxlength')">Citat ne sme biti duži od 385 karaktera.</div>
+							  </div>
+							</div>
+						 
+
+ 
+							<div class="form-group">
+								<label for="countryId">Država</label>
+								<select id="countryId" formControlName="countryId" required (change)="onCountryChange($event)">
+								  <option value="" selected>Odaberi državu</option>
+								  <option *ngFor="let country of countries" [value]="country.id">{{ country.nameCountry }}</option>
+								</select>
+						  <!--		<div class="error-message" *ngIf="formazadodavanjeForm.get('townshipId').invalid && (formazadodavanjeForm.get('townshipId').dirty || formazadodavanjeForm.get('townshipId').touched)">
+								  <div *ngIf="formazadodavanjeForm.get('townshipId').hasError('required')">ID opštine je obavezno polje.</div>
+								  <div *ngIf="formazadodavanjeForm.get('townshipId').hasError('pattern')">Nije validan ID opštine.</div>
+								</div>-->
+							  </div> 
+
+
+							<div class="form-group">
+							  <label for="townshipId">Opština</label>
+							  <select id="townshipId" formControlName="townshipId" required >
+								<option value="" selected>Odaberi opštinu</option> 
+								<option *ngFor="let township of townships" [value]="township.id" >{{ township.nameTownship }}</option>
+								<!--
+								<option value="1">Opština 1</option>
+								<option value="2">Opština 2</option>
+								 -->
+							  </select>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('townshipId').invalid && (formazadodavanjeForm.get('townshipId').dirty || formazadodavanjeForm.get('townshipId').touched)">
+								<div *ngIf="formazadodavanjeForm.get('townshipId').hasError('required') || townships==null">Opština je obavezno polje. Odaberite državu da bi vam se prikazale opštine.</div>
+							  </div>
+							</div>
+
+
+
+
+							<div class="form-group">
+							  <label for="beggin">Početak</label>
+							  <input type="date" id="beggin" formControlName="beggin" required>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('beggin').invalid && (formazadodavanjeForm.get('beggin').dirty || formazadodavanjeForm.get('beggin').touched)">
+								<div *ngIf="formazadodavanjeForm.get('beggin').hasError('required')">Početak je obavezno polje.</div>
+							  </div>
+							</div>
+						  
+							<div class="form-group">
+							  <label for="end">Kraj</label>
+							  <input type="date" id="end" formControlName="end" required>
+							  <div class="error-message" *ngIf="formazadodavanjeForm.get('end').invalid && (formazadodavanjeForm.get('end').dirty || formazadodavanjeForm.get('end').touched)">
+								<div *ngIf="formazadodavanjeForm.get('end').hasError('required')">Kraj je obavezno polje.</div>
+							  </div>
+							</div>
+							<br>
+							<div class="form-group">
+								<label>Kategorija</label>
+								<div>
+								  <label>
+									<input type="radio" formControlName="categoryDimensionId" value="1" required>
+									Polovina ekrana
+								  </label>
+								</div>
+								<div>
+								  <label>
+									<input type="radio" formControlName="categoryDimensionId" value="2" required>
+									Celi ekran
+								  </label>
+								</div>
+								<div class="error-message" *ngIf="formazadodavanjeForm.get('categoryDimensionId').invalid && (formazadodavanjeForm.get('categoryDimensionId').dirty || formazadodavanjeForm.get('categoryDimensionId').touched)">
+								  <div *ngIf="formazadodavanjeForm.get('categoryDimensionId').hasError('required')">Morate odabrati kategoriju dimenzija.</div>
+								</div>
+							  </div>
+							  
+						  
+
+							<!-- Korisnik-->
+							<hr/>
+							<h3>Podaci o vama: </h3>
+							<div class="form-group">
+								<label for="firstName">Vaše Ime</label>
+								<input type="text" id="firstName" formControlName="firstName" required>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('firstName').hasError('required') && formazadodavanjeForm.get('firstName').touched">Ime je obavezno polje.</div>
+								<div  class="error-message"  *ngIf="formazadodavanjeForm.get('firstName').hasError('minlength')">Ime ne sme biti kraće od 2 karaktera.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('firstName').hasError('maxlength')">Ime ne sme biti duže od 80 karaktera.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('firstName').hasError('pattern')">Reci u imenu moraju početi velikim početnim slovom i biti u skladu sa gramatičkim formatom.</div>
+							  </div>
+							  
+							  <div class="form-group">
+								<label for="lastName">Vaše Prezime</label>
+								<input type="text" id="lastName" formControlName="lastName" required>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('lastName').hasError('required') && formazadodavanjeForm.get('lastName').touched">Prezime je obavezno polje.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('lastName').hasError('minlength')">Prezime ne sme biti kraće od 2 karaktera.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('lastName').hasError('maxlength')">Prezime ne sme biti duže od 80 karaktera.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('lastName').hasError('pattern')">Reci u prezimenu moraju početi velikim početnim slovom i biti u skladu sa gramatičkim formatom.</div>
+							  </div>
+							  
+							  <div class="form-group">
+								<label for="email">Vaš Email</label>
+								<input type="text" id="email" formControlName="email" required>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('email').hasError('required') && formazadodavanjeForm.get('email').touched">Email je obavezno polje.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('email').hasError('minlength')">Email ne sme biti kraći od 5 karaktera.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('email').hasError('maxlength')">Email ne sme biti duži od 80 karaktera.</div>
+								<div class="error-message" *ngIf="formazadodavanjeForm.get('email').hasError('email')">Email nije u dobrom formatu.</div>
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('email').hasError('existingEmail')">Ovaj email već postoji u bazi podataka. Odaberite novi ili se obratite administratorima.</div>
+							  </div>
+							  
+							  <div class="form-group">
+								<label for="phoneNumber">Vaš Broj telefona    <span class="optionSpan"> &#42;Opciono </span>  </label>
+								<input type="text" id="phoneNumber" value="" formControlName="phoneNumber">
+								<div class="error-message"  *ngIf="formazadodavanjeForm.get('phoneNumber').invalid && (formazadodavanjeForm.get('phoneNumber').dirty || formazadodavanjeForm.get('phoneNumber').touched) " >Broj telefona sadži previše karaktera.</div>
+							  </div>
+							  
+
+
+
+							<button type="submit" [disabled]="formazadodavanjeForm.invalid">Dodaj objavu</button>
+						  </form>
+						  
+						  
+					</div><!-- Row /- -->
+				</div><!-- Container /- -->
+			</div><!-- Content Block /- -->
+		</main>

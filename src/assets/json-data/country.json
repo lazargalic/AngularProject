@@ -1,0 +1,14 @@
+[
+    {
+        "idCountry": 1,
+        "nameCountry" : "Srbija"
+    },
+    {
+        "idCountry": 2,
+        "nameCountry" : "Crna Gora"
+    },
+    {
+        "idCountry": 3,
+        "nameCountry" : "Hrvatska"
+    }
+]

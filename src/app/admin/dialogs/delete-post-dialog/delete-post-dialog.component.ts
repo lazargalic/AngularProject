@@ -1,0 +1,55 @@
+import { HttpHeaders } from '@angular/common/http';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { DeletePostService } from 'src/app/shared/services/posts/delete-post.service';
+
+@Component({
+  selector: 'app-delete-post-dialog',
+  templateUrl: './delete-post-dialog.component.html',
+  styleUrls: ['./delete-post-dialog.component.css']
+})
+export class DeletePostDialogComponent {
+  constructor(
+    public dialogRef: MatDialogRef<DeletePostDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private deletePostService : DeletePostService,
+    private router : Router, 
+    private toastr: ToastrService
+  ) {}
+
+  deletePost(id : number | string): boolean {
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+ 
+    var dataToSend = {
+      "idArticle": id
+    }
+ 
+
+    this.deletePostService.delete(dataToSend, headers).subscribe({
+      next: response =>{
+
+        this.toastr.success('Uspešno ste obrisali objavu!', 'Uspeh');
+        this.cancelDialog();
+        return true;
+      },
+      error: xhr =>{
+        var errMessageToDisplay;
+        if(xhr.error.message != undefined) errMessageToDisplay = xhr.error.message;
+        if( xhr.error.errors != undefined ) errMessageToDisplay = xhr.error.errors[0].error;
+        
+        this.toastr.error(errMessageToDisplay, 'Greška');
+        console.log(errMessageToDisplay);
+        //console.log(xhr);
+      }
+    });
+
+    return false;
+  }
+
+  cancelDialog(): void {
+    this.dialogRef.close('deleted');
+  }
+}

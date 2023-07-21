@@ -1,0 +1,41 @@
+<div id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li routerLinkActive="active"> <a routerLink="/home"   title="Početna">Početna</a></li>
+        <li routerLinkActive="active"> <a routerLink="/posts"    title="Postovi">Postovi</a></li>
+        <li routerLinkActive="active" *ngIf="!isLoggedIn"> <a routerLink="/add-post"    title="Dodaj Post">Dodaj Post</a></li>
+        <li  routerLinkActive="active" *ngIf="isLoggedIn"> <a  routerLink="/add-post-reg" > Dodaj Post </a></li>
+        <li  routerLinkActive="active" *ngIf="!isLoggedIn" routerLinkActive="active"> <a routerLink="/login"    title="Početna">Uloguj se</a></li>
+        <li routerLinkActive="active"> <a routerLink="/about"    title="Autor">Autor</a></li>
+        <li *ngIf="isAdmin" class="dropdown" routerLinkActive="active" >
+             <a  title="admin" class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false">  <b> Admin </b></a>  
+            <i class="ddl-switch fa fa-angle-down"></i>
+            <ul class="dropdown-menu">
+                <li><a routerLink="/admin-posts" title="Portfolio 2 col">Objave</a></li>
+                <li><a routerLink="/admin-users" title="Portfolio 2 col">Korisnici</a></li>
+            </ul>
+        </li>
+        <li *ngIf="isLoggedIn"> <a  (click)="logOut()" > <i> Odjavi se </i> </a></li>
+
+    </ul>
+</div>
+
+
+
+               
+       <!--    <ng-container *ngFor="let n of mynav">
+            <li routerLinkActive="active"> <a routerLink="{{n.link}}"    title="{{n.title}}">{{n.name}}</a></li>
+        </ng-container>  -->
+
+        <!--  <li class="dropdown" routerLinkActive="active" >
+            <a routerLink="/add-post" routerLinkActive="active"  title="add-post" class="dropdown-toggle" 
+                    role="button" aria-haspopup="true" aria-expanded="false">Dodaj Artikal</a>
+            <i class="ddl-switch fa fa-angle-down"></i>
+            <ul class="dropdown-menu">
+                <li><a href="portfolio-2-col.html" title="Portfolio 2 col">Portfolio 2 Column</a></li>
+                <li><a href="portfolio-3-col.html" title="Portfolio 3 col">Portfolio 3 Column</a></li>
+                <li><a href="portfolio-masonry.html" title="Portfolio Masonry">Portfolio Masonry</a></li>
+                <li><a href="portfolio-single.html" title="Portfolio Single">Portfolio Single</a></li>
+                <li><a href="404.html" title="Home 2">404</a></li>
+            </ul>
+        </li> -->
+        

@@ -1,0 +1,83 @@
+	<!-- Footer Main -->
+	<footer id="footer-main" class="container-fluid no-left-padding no-right-padding footer-main">
+		<!-- Top Footer -->
+		<div class="container-fluid no-left-padding no-right-padding top-footer">
+			<!-- Container -->
+			<div class="container">
+				<!-- Row -->
+				<div class="row">
+					<!-- Widget About -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<aside class="widget widget_about">
+							<a href="index.html"><img src="assets/images/logo.png" alt="Logo" /></a> 
+							<p>{{ myfooter[0].first_div.description}}  </p>
+							<aside class="widget widget_social">
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+									<li><a href="#"><i class="fa fa-skype"></i></a></li>
+								</ul>
+							</aside>
+						</aside>
+					</div><!-- Widget About /- -->
+					
+					<!-- Widget : Popular Post -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<aside class="widget widget_latestposts">
+							<h3 class="widget-title">{{ myfooter[0].seccond.title}} </h3>
+							<ng-container *ngFor="let child of myfooter[0].seccond.childs">
+								<div class="latest-content">
+									<a   title="Recent Posts"><i><img src="assets/images/author/trophy.png " class="wp-post-image" alt="blog-1"></i></a>
+										<span><a >{{child.date }}</a></span>
+										<h5><a title="Collaboratively scale ethical total linkage"  >{{child.description }}</a></h5>
+								</div>
+							</ng-container>
+
+						</aside>
+					</div><!-- Widget : Popular Post /- -->
+					
+					<!-- Widget : Twitter -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<aside class="widget widget_twitter">
+							<h3 class="widget-title">{{ myfooter[0].third.title}}</h3>
+							<ng-container *ngFor="let child of myfooter[0].third.childs">
+								<div class="tweet-box">
+									<p><i class="fa fa-twitter"></i> <a   title="Johe deo">{{child.customer}}</a> {{child.comment}}</p>
+									<p>Ocena: 
+										<i class="fa fa-star"></i>  
+										<i class="fa fa-star"></i>  
+										<i class="fa fa-star"></i>  
+										<i class="fa fa-star"></i>  
+										<i class="fa fa-star"></i>  
+									</p>
+								</div>
+							</ng-container>
+						</aside>
+					</div><!-- Widget : Twitter -->
+					
+					<!-- Widget : Flickr -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<aside class="widget widget_flickr">
+							<h3 class="widget-title">{{ myfooter[0].fourth.title}}</h3>
+							<div class="widget_about">
+								<p>
+									{{ myfooter[0].fourth.description}}
+								</p>
+							</div>
+						</aside>
+					</div><!-- Widget : Flickr /- -->
+					
+				</div><!-- Row /- -->
+			</div><!-- Container /- -->
+		</div><!-- Top Footer -->
+		<!-- Bottom Footer -->
+		<div class="container-fluid bottom-footer no-left-padding no-right-padding">
+			<!-- Container -->
+			<div class="container">
+				<p>{{ myfooter[0].line_text }}</p>
+			</div><!-- Container -->
+		</div><!-- Bottom Footer /- -->
+	</footer><!-- Footer Main /- -->
+
+

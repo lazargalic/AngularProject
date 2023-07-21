@@ -1,0 +1,379 @@
+[
+  {
+      "id": 1,
+      "nameArticle": "Kuvanje",
+      "mainPicturePath": "assets/images/posts/posts-main1.jpg",
+      "description": "Krenite na kulinarsko putovanje i zadovoljite svoje čulo ukusa. Naš blog prikazuje raznovrsna kulinarska iskustva i pruža inspiraciju za sve ljubitelje hrane. Otkrijte nove recepte, naučite korisne kuhinjske trikove i istražite različite kuhinje širom sveta. ",
+      "beggin": "2023-05-30",
+      "end": "2023-08-30 ",
+      "author": {
+        "id": 1,
+        "firstName": "Lazar",
+        "lastName": "Galic",
+        "email": "lazar@gmail.com"
+      },
+      "emotions": 25,
+      "category_dimension_id" : 1,
+      "additionalDescription": "Kuvanje je mnogo više od jednostavnog postupka pripreme hrane. Ono je umetnost koja spaja ukuse, mirise i teksture, a rezultat su jela koja donose radost i zadovoljstvo. Bilo da ste strastveni kuvar ili početnik u kuhinji, ova divna aktivnost nudi neograničene mogućnosti za kreativnost i eksperimentisanje. U ovom članku istražićemo čarobni svet kuvanja i otkriti zašto je ono mnogo više od pukog zadovoljenja osnovnih prehrambenih potreba.",
+      "quote": "Kuvanje je umetnost",
+      "mainContent": "Kuvanje je poput slikanja na praznom platnu ili pisanja pesme. Svaki kuvar koristi sastojke kao boje na svojoj paleti i stvara ukusne kompozicije koje su jedinstvene za njegov ili njen stil. Kreativnost se ogleda u kombinovanju različitih ukusa i tekstura, osmišljavanju novih recepata ili davanju ličnog pečata tradicionalnim jelima. U kuhinji se otvara prostor za eksperimentisanje i izražavanje individualnosti, bez ikakvih granica. Kuvanje može biti terapeutsko iskustvo koje pomaže da se oslobodimo stresa i anksioznosti. Uzimanje vremena da se posvetimo pripremi hrane može biti meditativno, umirujuće i opuštajuće. Proces se odvija korak po korak, omogućavajući nam da se fokusiramo na trenutak i budemo prisutni u sadašnjem trenutku. Miris sveže iseckanih začina, zvukovi hrskanja povrća na tavi i zadovoljstvo koje donosi isprobavanje novog recepta sve zajedno stvaraju jedinstveno iskustvo koje oslobađa um od svakodnevnih briga.",
+      "township": {
+        "id": 1,
+        "nameTownship": "Palilula",
+        "idCountry": 1,
+        "nameCountry": "Srbija"
+      },
+      "emotion_reaction": 
+        {
+          "love" : {
+            "users": [
+              "mika@gmail.com", "darko@gmail.com","ivan@gmail.com"
+            ]
+          },
+          "wow" : {
+            "users": [
+              "lazar@gmail.com", "mirko@gmail.com" 
+            ]
+          },
+          "dislike" : {
+            "users": [
+              "pera@gmail.com"
+            ]
+          }
+        }
+      ,
+      "comments": [
+        {
+          "idComment": 21,
+          "content": "Svaka Cast !!!!",
+          "stickerId": null,
+          "user" : "Mika Mikic",
+          "date" : "2023-02-12",
+          "childCommentts": [
+            {
+              "idComment": 22,
+              "content": "Sta ti pises",
+              "stickerId": null,
+              "user" : "Pera Peric",
+              "date" : "2023-03-12"
+            },
+            {
+              "idComment": 23,
+              "content": "Sto se ti javljas",
+              "stickerId": 1,
+              "user" : "Tanja Zivkovic",
+              "date" : "2023-03-22"
+            }
+          ]
+        },
+        {
+          "idComment": 21,
+          "content": "Svaka Cast !!!!",
+          "stickerId": null,
+          "user" : "Mika Mikic",
+          "date" : "2023-02-12",
+          "childCommentts": []
+        },
+        {
+          "idComment": 21,
+          "content": "Vauuuuu !!!!",
+          "stickerId": null,
+          "user" : "Marko Mikic",
+          "date" : "2023-02-12",
+          "childCommentts": [
+            {
+              "idComment": 21,
+              "content": "Sta vau ?",
+              "stickerId": null,
+              "user" : "Mika Mikic",
+              "date" : "2023-02-12",
+              "childCommentts": []
+            }
+          ]
+        }
+	      ]
+    },
+    {
+      "id": 2,
+      "nameArticle": "Unapredite svoj nacin zivota",
+      "mainPicturePath": "assets/images/posts/posts-main2.jpg",
+      "description": "Pronađite savete i smernice za unapređenje fizičkog i mentalnog blagostanja. Naš blog vam pruža informacije o zdravom načinu života, vežbanju, ishrani i tehnika za opuštanje. Otkrijte kako da postignete balans i blagostanje u svakodnevnom životu.",
+      "beggin": "2023-01-30",
+      "end": "2023-03-12 ",
+      "author": {
+        "id": 2,
+        "firstName": "Pera",
+        "lastName": "Peric",
+        "email": "pera@gmail.com"
+      },
+      "emotions": 6,
+      "category_dimension_id" : 2,
+      "additionalDescription": "Napredak u životu nije rezervisan samo za neke privilegovane pojedince. Svako od nas može unaprediti svoj način života i postići veće blagostanje. Evo nekoliko korisnih saveta koji vam mogu pomoći da započnete svoje putovanje ka poboljšanju kvaliteta života.",
+      "quote": "U zdravom telu zdrav duh.",
+      "mainContent": "Postavite ciljeve: Definišite jasne i dostižne ciljeve koje želite postići. Bez ciljeva, teško je pratiti napredak i održati motivaciju. Podelite svoje ciljeve na manje korake kako biste ih lakše ostvarili. Vodite zdrav način života: Zdravlje je temelj kvalitetnog života. Vodite računa o svom fizičkom zdravlju redovnim vežbanjem, zdravom ishranom i dovoljnim odmorom. Pronađite aktivnost koja vam prija i uključite je u svoju svakodnevicu. Učite i razvijajte se: Nastavite sa učenjem i razvijanjem svojih veština. To može biti kroz formalno obrazovanje, čitanje knjiga, pohađanje radionica ili online kurseva. Održavanje uma aktvnim pomaže vam da ostanete angažovani i motivisani. Upravljajte vremenom: Efikasno upravljanje vremenom ključno je za postizanje uspeha. Napravite planove, organizujte svoje obaveze i prioritizujte važne zadatke. Eliminišite vreme koje provodite na nebitnim aktivnostima i fokusirajte se na ono što je zaista važno. Negujte pozitivne odnose: Kvalitetni odnosi sa porodicom, prijateljima i kolegama mogu značajno uticati na našu sreću i blagostanje. Negujte te odnose, budite podrška drugima i izbegavajte negativne ljude koji vam crpe energiju. Pomažite drugima: Nesebično pružanje pomoći drugima može doneti veliku radost i zadovoljstvo. Volontirajte u lokalnoj zajednici, pružite podršku onima kojima je potrebna i budite oslonac za druge ljude. Praktikujte samorefleksiju: Redovno izdvajajte vreme za samorefleksiju i razmišljanje o svom životu. Razmislite o svojim postignućima, vrednostima i ciljevima. Identifikujte oblasti u kojima želite da se poboljšate i pronađite",
+      "township": {
+        "id": 2,
+        "nameTownship": "Niksic",
+        "idCountry": 2,
+        "nameCountry": "Crna Gora"
+      },
+      "emotion_reaction": 
+        {
+          "love" : {
+            "users": [
+              "mika@gmail.com", "darko@gmail.com","ivan@gmail.com", "lazar@gmail.com"
+            ]
+          },
+          "wow" : {
+            "users": [
+               "mirko@gmail.com","daradarkovic@gmail.com"
+            ]
+          },
+          "dislike" : {
+            "users": [
+              "pera@gmail.com"
+            ]
+          }
+        }
+      ,
+      "comments": [
+        {
+          "idComment": 21,
+          "content": "Svakaaaa pohvalaaaa !!!!",
+          "stickerId": null,
+          "user" : "Mikaaa Mikic",
+          "date" : "2023-02-12",
+          "childCommentts": [
+            {
+              "idComment": 23,
+              "content": "Cao Miko otkud ti ovde",
+              "stickerId": 1,
+              "user" : "Tanja Zivkovic",
+              "date" : "2023-03-22"
+            }
+          ]
+        },
+        {
+          "idComment": 21,
+          "content": "Bravo bre",
+          "stickerId": null,
+          "user" : "Djura Djuric",
+          "date" : "2023-02-12",
+          "childCommentts": []
+        },
+        {
+          "idComment": 21,
+          "content": "To je to !!!!",
+          "stickerId": null,
+          "user" : "Mika Mikic",
+          "date" : "2023-02-12",
+          "childCommentts": [
+            {
+              "idComment": 21,
+              "content": "Ko je tebe pitao bilo sta ",
+              "stickerId": null,
+              "user" : "Mika Mikic",
+              "date" : "2023-02-12",
+              "childCommentts": []
+            }
+          ]
+        }
+	      ]
+    },
+    {
+      "id": 3,
+      "nameArticle": "Putovanja",
+      "mainPicturePath": "assets/images/posts/posts-main3.jpg",
+      "description": "Istražite svet putovanja i otkrijte fascinantna odredišta širom sveta. Naš blog vam donosi inspirativne priče, putopise i savete za planiranje savršenog putovanja. Uronite u različite kulture, upoznajte nove ljude i stvorite nezaboravne uspomene.",
+      "beggin": "2022-02-30",
+      "end": "2023-02-12 ",
+      "author": {
+        "id": 3,
+        "firstName": "Mika",
+        "lastName": "Mikic",
+        "email": "mika@gmail.com"
+      },
+      "emotions": 6,
+      "category_dimension_id" : 2,
+      "additionalDescription": "Proširuje vidike: Putovanje nas izvlači iz naše svakodnevice i uvodi nas u nove kulture, jezike, tradicije i načine razmišljanja. Susret sa različitim načinima života podstiče našu kreativnost i otvara nove perspektive, pomažući nam da shvatimo širu sliku sveta.",
+      "quote": "Svi putevi vode u Rim.",
+      "mainContent": "Razvija toleranciju i razumevanje: Kroz putovanja se suočavamo sa različitostima i upoznajemo ljude sa drugačijim pozadinama i vrednostima. To nam pomaže da razvijemo toleranciju, empatiju i razumevanje za druge kulture. Kroz te interakcije, učimo da cenimo različitosti i gradimo mostove među ljudima. Podstiče samostalnost: Putovanje je prilika da preuzmemo odgovornost za organizaciju svog vremena, budžeta i rasporeda. Moramo donositi odluke, suočavati se sa izazovima i snalaziti se u nepoznatim situacijama. Ova iskustva jačaju našu samostalnost i samopouzdanje. Inspirira kreativnost: Putovanje je izvor inspiracije za umetnost, pisanje, fotografiju i mnoge druge oblasti izražavanja. Novi pejzaži, arhitektura, boje i mirisi mogu podstaći našu kreativnost i otvoriti vrata za nove ideje. Donosi nova saznanja: Putovanje je prilika da steknemo nova znanja o istoriji, geografiji, umetnosti, religiji i drugim oblastima. Muzeji, spomenici i lokalne priče nam pružaju uvid u bogatu baštinu sveta i proširuju naše obrazovanje. Ohrabruje izlazak iz zone komfora: Putovanje često zahteva da izađemo iz svoje zone komfora. Susret sa nepoznatim jezicima, hranom, transportom i kulturom može biti izazovno, ali nas istovremeno podstiče na rast, prilagođavanje i razvoj novih veština. Osnažuje sećanja i iskustva: Putovanja stvaraju nezaboravne uspomene koje ćemo nositi sa sobom zauvek.",
+      "township": {
+        "id": 3,
+        "nameTownship": "Budva",
+        "idCountry": 2,
+        "nameCountry": "Crna Gora"
+      },
+      "emotion_reaction": 
+        {
+          "love" : {
+            "users": [
+             "darko@gmail.com","ivan@gmail.com"
+            ]
+          },
+          "wow" : {
+            "users": [
+              "lazar@gmail.com", "mirko@gmail.com"
+            ]
+          },
+          "dislike" : {
+            "users": [
+              "pera@gmail.com"
+            ]
+          }
+        }
+      ,
+      "comments": [
+        {
+          "idComment": 21,
+          "content": "Los post",
+          "stickerId": null,
+          "user" : "Igor Igorovic",
+          "date" : "2023-02-12",
+          "childCommentts": []
+        },
+        {
+          "idComment": 21,
+          "content": "Svaka Cast !!!!",
+          "stickerId": null,
+          "user" : "Mika Mikic",
+          "date" : "2023-02-12",
+          "childCommentts": [
+            {
+              "idComment": 21,
+              "content": "Miko sto svuda pises komentare?",
+              "stickerId": null,
+              "user" : "Dora Mikic",
+              "date" : "2023-02-12",
+              "childCommentts": []
+            }
+          ]
+        }
+	      ]
+    },
+    {
+      "id": 4,
+      "nameArticle": "Web razvoj",
+      "mainPicturePath": "assets/images/posts/posts-main4.jpg",
+      "description": "Otkrijte najnovije trendove u web razvoju i naučite kako iskoristiti konkurentske partnerske odnose kako biste stvorili efikasne i korisnički prijateljske veb sajtove. Ostanite korak ispred sa našim informativnim člancima i budite u toku sa najnovijim scenarijima u industriji.",
+      "beggin": "2021-04-30",
+      "end": "2024-05-04 ",
+      "author": {
+        "id": 4,
+        "firstName": "Djordje",
+        "lastName": "Zivanovic",
+        "email": "djordje@gmail.com"
+      },
+      "emotions": 8,
+      "category_dimension_id" : 1,
+      "additionalDescription": "Web razvoj je dinamična i kreativna oblast koja omogućava kreiranje interaktivnih i funkcionalnih veb stranica. Kroz web razvoj, možete ostvariti sledeće koristi: 1. Kreiranje profesionalne online prisutnosti: Web razvoj vam omogućava da izgradite profesionalnu online prisutnost za vašu kompaniju, projekat ili lični brend. Možete dizajnirati veb stranice koje odražavaju vašu jedinstvenu viziju i pružaju relevantne informacije posetiocima. 2. Proširite doseg i privucite nove posetioce: Kroz dobro dizajnirane veb stranice i optimizaciju za pretraživače, možete povećati vidljivost vašeg sadržaja i privući nove posetioce. To vam omogućava da dosegnete širu publiku i promovišete svoje proizvode ili usluge.",
+      "quote": "Citaj danas i znaces sutra vise",
+      "mainContent": "Interaktivnost i angažovanje korisnika: Web razvoj vam omogućava da stvorite interaktivne veb stranice sa funkcionalnostima koje korisnicima pružaju bogato iskustvo. To može uključivati obrasce za kontakt, korpu za kupovinu, animacije ili druge interaktivne elemente koji poboljšavaju angažovanje posetilaca. 4. Prilagođavanje mobilnim uređajima: Web razvoj omogućava da vaše veb stranice budu optimizovane za prikaz na mobilnim uređajima. Mobilna prilagodljivost je ključna u današnjem svetu, jer većina ljudi koristi pametne telefone i tablete za pristup internetu. 5. Skalabilnost i fleksibilnost: Web razvoj vam omogućava da skalirate vaše veb stranice prema rastućim potrebama. Bez obzira da li želite dodavati nove funkcionalnosti, sadržaj ili proširiti svoj posao, web razvoj vam pruža fleksibilnost da se prilagodite promenama. 6. Analitika i praćenje performansi: Kroz web razvoj možete implementirati analitičke alate koji vam omogućavaju praćenje performansi vaših veb stranica. Možete dobiti uvid u broj poseta, konverzije, ponašanje korisnika i druge metrike koje vam pomažu da optimizujete svoje veb stranice i postignete željene rezultate. 7. Unapređenje korisničkog iskustva: Web razvoj vam omogućava da stvorite veb stranice koje su korisnički prijateljske i jednostavne za navigaciju.",
+      "township": {
+        "id": 4,
+        "nameTownship": "Zagrebacka opstina",
+        "idCountry": 3,
+        "nameCountry": "Hrvatska"
+      },
+      "emotion_reaction": 
+        {
+          "love" : {
+            "users": [
+               
+            ]
+          },
+          "wow" : {
+            "users": [
+              "darko@gmail.com"
+            ]
+          },
+          "dislike" : {
+            "users": [
+              "pera@gmail.com", "lazar@gmail.com", "mirko@gmail.com"
+            ]
+          }
+        }
+      ,
+      "comments": [
+        {
+          "idComment": 21,
+          "content": "Jako korisno",
+          "stickerId": null,
+          "user" : "Tara Taric",
+          "date" : "2023-02-12",
+          "childCommentts": []
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nameArticle": "Citanje knjiga",
+      "mainPicturePath": "assets/images/posts/posts-main5.jpg",
+      "description": "Dublje se uronite u svet knjiga i otkrijte nove avanture kroz stranice. Naš blog vam donosi preporuke za čitanje, književne recenzije i uvid u svet književnosti. Zajedno ćemo otkrivati najnovije naslove i deliti strast prema pisanoj reči.",
+      "beggin": "2021-02-30",
+      "end": "2023-12-14 ",
+      "author": {
+        "id": 1,
+        "firstName": "Pera",
+        "lastName": "Peric",
+        "email": "pera@gmail.com"
+      },
+      "emotions": 2,
+      "category_dimension_id" : 2,
+      "additionalDescription": "Citanje knjiga je obogaćujuće iskustvo koje nosi brojne prednosti: 1. Proširuje horizonte: Citanje knjiga otvara vrata ka novim svetovima, idejama i perspektivama. Putujete kroz vreme i prostor, istražujete različite kulture i upoznajete se sa različitim likovima. Ovo vam omogućava da proširite svoje znanje i razumete različite aspekte sveta. 2. Razvija kreativnost: Knjige su izvor inspiracije za vašu sopstvenu kreativnost. Kroz čitanje, možete otkriti nove stilove pisanja, jezičke figure i načine izražavanja. Ovo vam može pomoći da razvijete sopstveni stil pisanja ili da se inspirišete za kreativne projekte.",
+      "quote": "Kuvanje je umetnost",
+      "mainContent": "Poboljšava kognitivne sposobnosti: Citanje knjiga zahteva fokus, pažnju i koncentraciju. Ove mentalne veštine se razvijaju kroz redovno čitanje. Citanje takođe poboljšava memoriju, logičko razmišljanje i sposobnost analize. 4. Smanjuje stres: Citanje knjiga može biti odličan način da se opustite i smanjite stres. Gubite se u priči i zaboravljate na svakodnevne brige. Citanje takođe može imati terapeutski efekat, pomažući vam da se suočite sa svojim emocijama i razumete ih bolje. 5. Poboljšava vokabular i jezičke veštine: Citanje knjiga vam omogućava da proširite svoj vokabular i poboljšate jezičke veštine. Susrećete nove reči, idiome i načine izražavanja koji će obogatiti vašu komunikaciju. Takođe, čitanje knjiga na stranom jeziku može vam pomoći da poboljšate svoje jezičko znanje. 6. Pruža emocionalnu povezanost: Knjige često opisuju ljudska iskustva, emocije i dileme sa kojima se možemo identifikovati. Čitanje vam omogućava da se povežete sa likovima, saosećate sa njima i razumete njihove perspektive. Ovo može pomoći u razvijanju empatije i razumevanja prema drugima. 7. Oslobađa maštu i podstiče introspekciju: Knjige vas mogu odvesti na putovanje mašte i fantazije. Izazivaju vašu kreativnost i podstiču vas da razmišljate o dubljim pitanjima. Takođe, mogu vam pružiti priliku za introspekciju i samorefleksiju, pomažući vam da bolje razumete sebe i svoje životne vrednosti.",
+      "township": {
+        "id": 3,
+        "nameTownship": "Podgorica",
+        "idCountry": 2,
+        "nameCountry": "Crna Gora"
+      },
+      "emotion_reaction": 
+        {
+          "love" : {
+            "users": [
+              "pera@gmail.com", "lazar@gmail.com", "mirko@gmail.com"
+            ]
+          },
+          "wow" : {
+            "users": [
+              "darko@gmail.com"
+            ]
+          },
+          "dislike" : {
+            "users": [
+              
+            ]
+          }
+        }
+      ,
+      "comments": [
+        {
+          "idComment": 11,
+          "content": "Jako korisno",
+          "stickerId": null,
+          "user" : "Tara Taric",
+          "date" : "2023-02-12",
+          "childCommentts": []
+        },
+        {
+          "idComment": 11,
+          "content": "Lose",
+          "stickerId": null,
+          "user" : "Milenko Probic",
+          "date" : "2023-02-12",
+          "childCommentts": []
+        },
+        {
+          "idComment": 11,
+          "content": "Svidja mi se kako pises",
+          "stickerId": null,
+          "user" : "Tara Taric",
+          "date" : "2022-02-12",
+          "childCommentts": []
+        }
+      ]
+      
+    }
+]

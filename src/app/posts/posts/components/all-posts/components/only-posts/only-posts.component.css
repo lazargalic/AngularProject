@@ -1,0 +1,106 @@
+.pt-lazar {
+    padding-top: 8px !important;
+}
+
+.filter-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter {
+    margin-bottom: 10px;
+  }
+  
+  .filter label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .filter input[type="text"],
+  .filter input[type="range"] {
+    width: 100%;
+  }
+  
+  .countries {
+    margin-top: 5px;
+  }
+  
+  .filterrr  {
+    padding-top: 555px !important;
+  }
+  
+.widget {
+    color: rgb(48, 47, 47)
+}
+
+
+.no-posts-message {
+  background-color: #51b2cf !important;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 5px;
+  width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  border-radius: 4px;
+  display: none;
+  z-index: 1;
+  height: 200px !important; /* Podešavanje maksimalne visine menija */
+  overflow-y: auto !important; /* Dodavanje skrol trake */
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+
+.dropdown-menu-inner {
+  overflow-y: auto; /* Dodavanje skrol trake unutar menija */
+}
+
+
+select {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

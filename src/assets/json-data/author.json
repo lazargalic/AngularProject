@@ -1,0 +1,19 @@
+[
+    {
+        "img":{
+            "src":"/assets/images/author/autor1.jpg",
+            "alt":"slika autora"
+        },
+        "naslov": {
+            "glavni" : "O autoru",
+            "podnaslov" : "1/3 frontend , 2/3 backend web developer"
+        },
+        "opis": {
+            "prvi_deo" : {
+                "tekst" :  "Zovem se Lazar Galić. Rođen sam u martu 2002. godine i studiram Internet tehnologije na ICT koledžu u Beogradu, Srbiji. Završio sam u srednju elektrotehničku školu 'Nikola Tesla' sa diplomom elektrotehničara multimedija. ",
+                "poruka" : "A good plan today is better than a perfect plan tomorrow."
+            },
+            "drugi_deo" : "Naišao sam na veb dizajn i internet tehnologije u srednjoj školi po prvi put i to je postalo jedno od mojih interesovanja."
+        }
+    }
+]

@@ -1,0 +1,79 @@
+<div class="container admin-table  ">
+    <h2>Svi Korisnici</h2>
+
+    <div class="search-container">
+      <input  id="keywordUsers" type="text" class="search-input" placeholder="Pretrazi">
+      <button  (click)="searchAndGetUsers()" class="search-button">Pretraži</button>
+    </div>
+
+
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Ime Prezime </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName + ' ' + element.lastName}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef> Uloga </th>
+        <td mat-cell *matCellDef="let element"> {{element.role.nameRole}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef> Broj Telefona </th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneNumber == null ?  '/': element.phoneNumber}}      </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="created">
+        <th mat-header-cell *matHeaderCellDef> Kreiran U </th>
+        <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="updated">
+        <th mat-header-cell *matHeaderCellDef> Poslednja Izmena  </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastUpdatedAt == null ?  '/': element.lastUpdatedAt}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="deleted">
+        <th mat-header-cell *matHeaderCellDef> Obrisan u  </th>
+        <td mat-cell *matCellDef="let element"> {{element.deletedAt == null ?  '/': element.deletedAt}} </td>
+      </ng-container>
+      
+  
+      <!-- <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> Izmeni </th>
+        <td mat-cell *matCellDef="let element">    <button mat-button color="primary" (click)="openEditDialog(element)">Izmeni</button>    </td>
+      </ng-container> -->
+      
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Izmeni </th>
+        <td mat-cell *matCellDef="let element">      <button mat-button color="primary" (click)="openEditDialog(element)"  >Izmeni </button>  </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+    </table>
+   
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 100]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  
+   

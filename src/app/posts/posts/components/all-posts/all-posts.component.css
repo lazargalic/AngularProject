@@ -1,0 +1,10 @@
+.no-posts-message {
+    background-color: blue !important;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .myPTop  {
+    padding-top: 0px !important;
+  }

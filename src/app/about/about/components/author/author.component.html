@@ -1,0 +1,27 @@
+<div class="container-fluid no-left-padding no-right-padding content-block about-section">
+    <!-- Container -->
+    <div class="container">
+        <div class="about-detail">
+            <div class="col-md-5 col-sm-6  about-img">
+                <img src="{{myPageToPut[0].img.src}}" alt="{{myPageToPut[0].img.alt}}" />
+            </div>
+            <div class="col-md-7 col-sm-6 about-content ">
+                <h3>{{myPageToPut[0].naslov.glavni }}</h3>
+                <h5>{{myPageToPut[0].naslov.podnaslov }}</h5>
+                <p>{{myPageToPut[0].opis.prvi_deo.tekst }}</p>
+                <blockquote>
+                    <p>{{myPageToPut[0].opis.prvi_deo.poruka | uppercase  }}</p>
+                </blockquote>
+                <p>{{myPageToPut[0].opis.drugi_deo}}</p>
+                <div class="about-social">
+                    <span>Kontaktirajte me :</span>
+                    <ul>
+                        <li><a href="#" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><!-- Container /- -->
+</div><!-- Content Block /- -->		

@@ -1,0 +1,58 @@
+<div class="register-container lg-mb-xx">
+  <h2>Registracija</h2>
+
+  <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="firstName">Ime:</label>
+        <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
+        <div class="error-message" *ngIf="registrationForm.get('firstName').invalid && (registrationForm.get('firstName').dirty || registrationForm.get('firstName').touched)">
+          <span *ngIf="registrationForm.get('firstName').hasError('required')">Ime je obavezno.</span>
+          <span *ngIf="registrationForm.get('firstName').hasError('pattern')">Ime mora početi velikim početnim slovom i ne sme biti manje od 3 karaktera.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Prezime:</label>
+        <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
+        <div class="error-message" *ngIf="registrationForm.get('lastName').invalid && (registrationForm.get('lastName').dirty || registrationForm.get('lastName').touched)">
+          <span *ngIf="registrationForm.get('lastName').hasError('required')">Prezime je obavezno.</span>
+          <span *ngIf="registrationForm.get('lastName').hasError('pattern')">Prezime  mora početi velikim početnim slovom i ne sme biti manje od 3 karaktera.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" class="form-control" required>
+        <div class="error-message" *ngIf="registrationForm.get('email').invalid && (registrationForm.get('email').dirty || registrationForm.get('email').touched)">
+          <span *ngIf="registrationForm.get('email').hasError('required')">Email je obavezan.</span>
+          <span *ngIf="registrationForm.get('email').hasError('email')">Email nije validan.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Lozinka:</label>
+        <input type="password" id="password" formControlName="password" class="form-control" required>
+        <div class="error-message" *ngIf="registrationForm.get('password').invalid && (registrationForm.get('password').dirty || registrationForm.get('password').touched)">
+          <span *ngIf="registrationForm.get('password').hasError('required')">Lozinka je obavezna.</span>
+          <span *ngIf="registrationForm.get('password').hasError('pattern')">Šifra mora sadrzati minimalno 8 karaktera i barem jedno veliko slovo ili barem jedan od specijalnih znakova '#?!@$%^&*-'.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="identityNumber">Broj ličnog dokumenta (jmbg / reg. br ) - opciono:</label>
+        <input type="text" id="identityNumber" formControlName="identityNumber" class="form-control">
+        <div class="error-message" *ngIf="registrationForm.get('identityNumber').invalid && (registrationForm.get('identityNumber').dirty || registrationForm.get('identityNumber').touched)">
+          <span *ngIf="registrationForm.get('identityNumber').hasError('maxlength')">Broj lične karte ne sme biti duži od 20 karaktera.</span>
+          <span *ngIf="registrationForm.get('identityNumber').hasError('minlength')">Broj lične karte mora imati najmanje 6 karaktera.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Broj telefona - opciono: </label>
+        <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
+        <div class="error-message" *ngIf="registrationForm.get('phoneNumber').invalid && (registrationForm.get('phoneNumber').dirty || registrationForm.get('phoneNumber').touched)">
+          <span *ngIf="registrationForm.get('phoneNumber').hasError('maxlength')">Broj telefona ne sme biti duži od 15 karaktera.</span>
+          <span *ngIf="registrationForm.get('phoneNumber').hasError('minlength')">Broj telefona mora imati najmanje 6 karaktera.</span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">Registruj se</button>
+  </form>
+</div>
+<div class="register-container lg-mb-xxx">
+  <a routerLink="/login" title="Logovanje">Već imate nalog? Ulogujte se ovde</a>
+</div>

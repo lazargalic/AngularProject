@@ -1,0 +1,41 @@
+[
+    {
+    "first_div":{
+        "description" : "Hoary je platforma koja poboljsava i nadogradjuje vasa saznanja o mnogim temama."
+    },
+    "seccond": {
+        "title" : "Nagrade",
+        "childs" : [
+            {
+                "date" : "2022-06-05",
+                "description" : "Najbolja platforma 2022. godine."
+            },
+            {
+                "date" : "2021-06-05",
+                "description" : "Najkorisnija aplikacija u Srbiji."
+            }
+        ]
+    },
+    "third": {
+        "title" : "Ocene",
+        "childs" : [
+            {
+                "customer" : "Milan",
+                "comment" : "Ekstra je, koristim je svakodnevno i zanimljiva je!",
+                "rating" : 5
+            },
+            {
+                "customer" : "Tanja",
+                "comment" : "Sve pohvale. Najvise mi se svidja sto je brza i jednostavna.",
+                "rating" : 5
+            }
+        ]
+    },
+    "fourth": {
+        "title" : "Zasto bas mi ? ",
+        "description" : "Dobrodošli u našu inovativnu aplikaciju koja će unaprediti vasa stara, i potencijalno nova saznanja o temama koje vas interesuju. Naša platforma omogućuje zaposlenima da lako i brzo saznajete o novim stvarima koje su aktuelne."
+    },
+    "line_text" : "Copyright: 2023 Lazar Galic"
+}
+
+]

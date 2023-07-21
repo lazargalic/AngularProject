@@ -1,0 +1,83 @@
+<div class="register-container dialog-big-scroll  lg-mb-xx">
+    <h2>Izmena Korisnika {{data.firstName}}</h2>
+  
+    <form [formGroup]="userForm"  >
+        <div class="form-group">
+          <label for="firstName">Ime:</label>
+          <input type="text" id="firstName" [(ngModel)]="data.firstName" value="{{data.firstName}}" formControlName="firstName" class="form-control" required>
+          <div class="error-message" *ngIf="userForm.get('firstName').invalid && (userForm.get('firstName').dirty || userForm.get('firstName').touched)">
+            <span *ngIf="userForm.get('firstName').hasError('required')">Ime je obavezno.</span>
+            <span *ngIf="userForm.get('firstName').hasError('pattern')">Ime mora početi velikim početnim slovom i ne sme biti manje od 3 karaktera.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Prezime:</label>
+          <input type="text" id="lastName" [(ngModel)]="data.lastName" value="{{data.lastName}}" formControlName="lastName" class="form-control" required>
+          <div class="error-message" *ngIf="userForm.get('lastName').invalid && (userForm.get('lastName').dirty || userForm.get('lastName').touched)">
+            <span *ngIf="userForm.get('lastName').hasError('required')">Prezime je obavezno.</span>
+            <span *ngIf="userForm.get('lastName').hasError('pattern')">Prezime  mora početi velikim početnim slovom i ne sme biti manje od 3 karaktera.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" [(ngModel)]="data.email" value="{{data.email}}" formControlName="email" class="form-control" required>
+          <div class="error-message" *ngIf="userForm.get('email').invalid && (userForm.get('email').dirty || userForm.get('email').touched)">
+            <span *ngIf="userForm.get('email').hasError('required')">Email je obavezan.</span>
+            <span *ngIf="userForm.get('email').hasError('email')">Email nije validan.</span>
+          </div>
+        </div>
+ 
+        <div class="form-group">
+          <label for="identityNumber">Broj ličnog dokumenta (jmbg / reg. br) - opciono :</label>
+          <input type="text" id="identityNumber"  [(ngModel)]="data.identityNumber" value="{{data.identityNumber}}" formControlName="identityNumber" class="form-control">
+          <div class="error-message" *ngIf="userForm.get('identityNumber').invalid && (userForm.get('identityNumber').dirty || userForm.get('identityNumber').touched)">
+            <span *ngIf="userForm.get('identityNumber').hasError('maxlength')">Broj lične karte ne sme biti duži od 20 karaktera.</span>
+            <span *ngIf="userForm.get('identityNumber').hasError('minlength')">Broj lične karte mora imati najmanje 6 karaktera.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Broj telefona - opciono :</label>
+          <input type="text" id="phoneNumber" [(ngModel)]="data.phoneNumber" value="{{data.phoneNumber}}"  formControlName="phoneNumber" class="form-control">         
+          <div class="error-message" *ngIf="userForm.get('phoneNumber').invalid && (userForm.get('phoneNumber').dirty || userForm.get('phoneNumber').touched)">
+            <span *ngIf="userForm.get('phoneNumber').hasError('maxlength')">Broj telefona ne sme biti duži od 15 karaktera.</span>
+            <span *ngIf="userForm.get('phoneNumber').hasError('minlength')">Broj telefona mora imati najmanje 6 karaktera.</span>
+          </div>
+        </div>
+        <div class="form-group">
+            <label>Uloga:</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" [value]="1" formControlName="roleId">
+                <span>Korisnik</span>
+              </label>
+              <br/>
+              <label>
+                <input type="radio" [value]="2" formControlName="roleId">
+                <span>Administrator</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Aktivan:</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" [value]="true" formControlName="isActive">
+                <span>Da</span>
+              </label>
+              <br/>
+              <label>
+                <input type="radio" [value]="false" formControlName="isActive">
+                <span>Ne</span>
+              </label>
+            </div>
+          </div>
+          <input type="text" id="id" [(ngModel)]="data.id" value="{{data.id}}" formControlName="idHidden" class="form-control hidden-input" >
+
+
+        <button mat-button (click)="onCancel()">Poništi</button>
+        <button mat-button color="primary" (click)="onSave()">Sačuvaj</button>
+    </form>
+  </div>
+  
+  
+  
