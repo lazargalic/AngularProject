@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CONFIGURATION } from 'src/app/constant/configuration';
 import { IAllPosts } from 'src/app/shared/interfaces/i-all-posts';
 import { ICountry } from 'src/app/shared/interfaces/i-country';
@@ -21,7 +22,7 @@ export class OnlyPostsComponent implements OnInit{
   numIterations: number;
   startIndex: number = 1;
   nowPage: number;
-  defaultPerPage=2;
+  defaultPerPage=12;
   defaultPage=1;
 
 
@@ -33,7 +34,7 @@ export class OnlyPostsComponent implements OnInit{
     countryId: "",
     dateFrom: '',
     dateTo: '',
-    perPage: 2,
+    perPage: 5,
     Page :1 
   };
 
@@ -43,7 +44,8 @@ export class OnlyPostsComponent implements OnInit{
               public countries: CountryService,
               private townshipService : TownshipService,
               private renderer: Renderer2,
-              private elementRef : ElementRef) { 
+              private elementRef : ElementRef,
+              private toastr : ToastrService) { 
       this.apiUrl = CONFIGURATION.WITHOUTAPIURL;
       this.townships = null;
    }
@@ -141,8 +143,8 @@ export class OnlyPostsComponent implements OnInit{
         
               },
               error: xhr =>{
-                //console.log(xhr);
-                //alert("Doslo je do greske!");
+
+                
               }
             })
             
@@ -152,7 +154,7 @@ export class OnlyPostsComponent implements OnInit{
     
   // Koristite Renderer2 za postavljanje pozicije prozora na vrh stranice
   scrollToTop() {
-    this.renderer.setProperty(document.documentElement, 'scrollTop', 20);
+    this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
   }
   
   //Promena Strane
@@ -177,10 +179,13 @@ export class OnlyPostsComponent implements OnInit{
   }
 
   //for za paginaciju   
-  getRange(start: number, count: number): number[] {
-    return Array.from({ length: count }, (_, i) => start + i);
+  getRange(start: number, end: number): number[] {
+    return Array.from({ length: end - start + 1 }, (_, index) => start + index);
   }
 
+  clamp(value: number, min: number, max: number): number {
+    return Math.min(Math.max(value, min), max);
+  }
 
 }
 

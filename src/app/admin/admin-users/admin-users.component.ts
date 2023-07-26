@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -23,7 +23,11 @@ export class AdminUsersComponent implements OnInit, AfterViewInit {
   private headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
 
   
-  constructor(private usersService: UsersService, private dialog: MatDialog, private toastr : ToastrService, private elementRef: ElementRef) {  }
+  constructor(private usersService: UsersService, 
+              private dialog: MatDialog,
+              private toastr : ToastrService,
+              private elementRef: ElementRef,
+              private renderer : Renderer2) {  }
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngAfterViewInit() {
@@ -33,6 +37,8 @@ export class AdminUsersComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     
     this.searchAndGetUsers();
+
+    this.scrollToTop();
   }
  
 
@@ -71,6 +77,9 @@ export class AdminUsersComponent implements OnInit, AfterViewInit {
     });
   }
 
-
+  scrollToTop() {
+    // Koristite Renderer2 za postavljanje pozicije prozora na vrh stranice
+    this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
+  }
 
 }

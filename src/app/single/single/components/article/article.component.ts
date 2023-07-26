@@ -46,25 +46,33 @@ export class ArticleComponent implements OnInit {
   }
 
   loadIsReacted() : void{
+
+
     let isValidToken = this.jwtService.IsValidToken();
 
+
     if(isValidToken) {
+
       let token = localStorage.getItem('token');
       let headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
- 
+
       this.isReactedService.getOne(this.singleId, headers).subscribe({
         next: response =>{
-  
+ 
         this.existUserReaction= response.idEmotion;
-
-       // alert(this.existUserReaction);
+        //alert(this.existUserReaction);
+         
         },
+
         error: xhr =>{
+
           var errMessageToDisplay;
           if(xhr.error.message != undefined) errMessageToDisplay = xhr.error.message;
           if( xhr.error.errors != undefined ) errMessageToDisplay = xhr.error.errors[0].error;
           
           this.toastr.error(errMessageToDisplay, 'Greška');
+
+          
         }
       });
     }

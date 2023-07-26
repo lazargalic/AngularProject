@@ -1,0 +1,141 @@
+<!-- Prikaz Postova-->
+<main class="site-main">	
+    <!-- Content Block -->
+    <div class="container-fluid no-left-padding no-right-padding content-block blog-category myPTop">
+        <!-- Container -->
+        <div class="container">
+            <!-- Row -->
+            <div class="row text-center">
+                <h2 class="lg-mb-xx"> Sve moje objave </h2> 
+            </div>
+
+    <div class="toReverse">
+
+            <div class="col-md-8 col-sm-7 col-xs-12 content-area content-area-space no-left-padding no-right-padding">
+    
+                <div id="loading" class="loading-spinner"> </div>		
+                
+                <ng-container *ngIf="myPosts.data.length > 0; else noPostsTemplate">
+                    
+                    <ng-container *ngFor="let post of myPosts.data">
+                        <div *ngIf="post.categoryDimensionId==2; else ngtemplate1" >
+                            <div class="blog-onecolumn col-xs-12">
+                                <!-- Type Post -->
+                                <div class="type-post">
+                                    <!-- Entry Cover -->
+                                    <div class="entry-cover">
+                                        <a routerLink="/single/{{post.id}}"><img src="{{apiUrl}}{{post.mainPicturePath}}" alt="Post" /></a>
+                                        <!--<div class="entry-meta"><a   title="Lifestyle">{{post.id}}</a></div>-->
+                                    </div><!-- Entry Cover /- -->
+                                    <div class="entry-content">
+                                        <h3 class="entry-title"><a routerLink="/single/{{post.id}}" title="{{post.nameArticle}}">{{post.nameArticle}}</a></h3>
+                                        <div class="post-meta">
+                                            <span><a  ><i class="fa fa-user"></i>{{post.author.fistName + ' ' + post.author.lastName }}</a></span>
+                                            <span><a  ><i class="fa fa-heart"></i>{{ post.emotionsNumber}}</a></span>
+                                            <span><a  ><i class="fa fa-clock-o"></i> {{post.beggin | samoDatumPipe3 }} / {{post.end | samoDatumPipe3  }} </a></span>
+                                        </div>
+                                        <p>{{post.description}}</p>
+                                        <i><p><i class="pt-lazar fa fa-map-marker"></i> {{post.township.nameCountry | uppercase}}, {{post.township.nameTownship | uppercase}}</p></i>
+                                        <div class="read-more">
+                                            <a (click)="openEditDialog(post)" title="Izmeni">Izmeni</a>
+                                            <a (click)="openDeleteDialog(post)" title="Obrisi">Obriši</a>
+                                        </div>
+                                        <div class="read-more">
+                                            <a routerLink="/single/{{post.id}}" title="Read More">Pročitaj više</a>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                        
+                        <ng-template #ngtemplate1> 
+                            <div class="blog-parts col-xs-12">
+                                <div class="type-post">
+                                    <div class="entry-cover col-md-5">
+                                        <a routerLink="/single/{{post.id}}"><img src="{{apiUrl}}{{post.mainPicturePath}}" alt="Post" /></a>
+                                    </div>
+                                    <div class="entry-content col-md-7">
+                                        <h3 class="entry-title"><a routerLink="/single/{{post.id}}" title="{{post.nameArticle}}">{{post.nameArticle}} </a></h3>
+                                        <div class="post-meta">
+                                            <span><a><i class="fa fa-user"></i>{{post.author.fistName + ' ' + post.author.lastName }}</a></span>
+
+                                            <span><a  ><i class="fa fa-heart"></i>{{post.emotionsNumber}}</a></span>
+                                                <span><a  ><i class="fa fa-clock-o"></i>{{post.beggin | samoDatumPipe3   }} /  {{post.end | samoDatumPipe3  }} </a></span>
+                                        </div>
+                                        <p>{{post.description}}</p>
+                                        <i><p><i class="pt-lazar fa fa-map-marker"></i> {{post.township.nameCountry | uppercase}}, {{post.township.nameTownship | uppercase}}</p></i>
+                                        <div class="read-more">
+                                            <a (click)="openEditDialog(post)"  title="Izmeni">Izmeni</a>
+                                            <a (click)="openDeleteDialog(post)" title="Obrisi">Obriši</a>
+                                        </div>
+                                        <div class="read-more">
+                                            <a routerLink="/single/{{post.id}}" title="Read More">Pročitaj više</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container >
+
+                </ng-container>
+                <ng-template #noPostsTemplate>
+                    <!-- Poruka kada je niz elemenata prazan -->
+                    <p  class="no-posts-message" >Ne postoje objave.</p>
+                </ng-template>
+
+            </div>
+
+
+
+            <!-- Filtiriranje-->
+            <div class="col-md-4 col-sm-5 col-xs-12 widget-area widget-space">
+                <!-- Widget : Recent Posts -->
+                <aside class="widget widget_latestposts">
+                    <div class="recent-post">
+                    <h3 class="widget-title">Pretraži: </h3>
+                            <div class="filter">
+                                <p><label for="keyword">Naslov:</label></p>
+                                <input type="text" [(ngModel)]="filterModel.title"  id="keyword"   />
+                            </div>
+                            <hr/>
+                            <div class="filter">
+                                <button type="button" class="btn btn-info"  (click)="filterPosts()" > Pretraži</button>
+                            </div>
+
+                    </div>
+
+ 
+                </aside>
+            </div>
+
+    </div>
+        <!-- PAGINACIJA -->
+                <div class="clearfix"></div>
+
+                <nav class="ow-pagination">
+                    <ul class="pagination">
+                      <li class="first-last-pagination" *ngIf="nowPage >= 1" [class.active]="1 === nowPage">
+                        <a (click)="changePage(1)">1</a>
+                      </li>
+                      <li *ngIf="nowPage > 3">
+                        <span>...</span>
+                      </li>
+                      <li *ngFor="let i of getRange(clamp(nowPage - 1, 2, numIterations), clamp(nowPage + 1, 2, numIterations))" [class.active]="i === nowPage">
+                        <a *ngIf="i" (click)="changePage(i)">{{ i }}</a>
+                      </li>
+                      <li *ngIf="nowPage < numIterations - 2">
+                        <span>...</span>
+                      </li>
+                      <li class="first-last-pagination" *ngIf="nowPage < numIterations -1">
+                        <a (click)="changePage(numIterations)">{{ numIterations }}</a>
+                      </li>
+                    </ul>
+                  </nav>
+                  
+
+            </div>
+        </div>
+ 
+</main>
+ 
+

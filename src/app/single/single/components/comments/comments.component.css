@@ -52,3 +52,7 @@
   .show-el {
     display: block !important;
   }
+
+  .bezi-desno {
+    margin-left: 30px !important;
+  }

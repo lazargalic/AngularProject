@@ -1,0 +1,19 @@
+<div class="main-container">		
+    <main class="site-main">			
+        <!-- Content Block -->
+        <div class="container-fluid no-left-padding no-right-padding error-section">
+            <!-- Container --> 
+            <div class="container">
+                <ng-container *ngIf="successful">
+                    <h3>Uspeh!</h3>
+                    <p>Uspešno ste aktivirali Vaš nalog!</p>
+                    <a routerLink="/login">Ulogujte se ovde!</a>
+                </ng-container>
+                <ng-container *ngIf="!successful">
+                    <h3>Greška!</h3>
+                    <p>Došlo je do greške</p>
+                </ng-container>
+            </div><!-- Container /- -->
+        </div><!-- Content Block /- -->			
+    </main>	
+</div>

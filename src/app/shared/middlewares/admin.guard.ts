@@ -10,9 +10,13 @@ export class AdminGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.jwtHandler.IsUserAdmin()) {
+      if(!this.jwtHandler.IsValidToken()){
+        this.router.navigate(['/login']); // Preusmeravanje na login stranicu ako je adminu istekao token
+        return false;
+      }
       return true;
     } else {
-      this.router.navigate(['/']); // Preusmeravanje na login stranicu ako korisnik nije ulogovan
+      this.router.navigate(['/']); // Preusmeravanje na home stranicu ako korisnik nije admin
       return false;
     }
   }

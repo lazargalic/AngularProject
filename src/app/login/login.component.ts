@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../shared/services/login/login.service';
 import { Router } from '@angular/router';
@@ -18,7 +18,8 @@ export class LoginComponent {
   constructor(private loginService : LoginService, 
               private router: Router,
               private toastr: ToastrService, 
-              private jwtHandler: JwtHandlerComponent
+              private jwtHandler: JwtHandlerComponent,
+              private renderer : Renderer2
               ) { }
 
   ngOnInit() {
@@ -32,7 +33,14 @@ export class LoginComponent {
       )
     });
 
+    this.scrollToTop();
   }
+
+  scrollToTop() {
+    this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
+  }
+
+
 
   submitForm() {
     if(this.loginForm.valid){

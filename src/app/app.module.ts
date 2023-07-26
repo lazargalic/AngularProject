@@ -27,12 +27,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { EditPostDialogComponent } from './admin/dialogs/edit-post-dialog/edit-post-dialog.component';
 import { DeletePostDialogComponent } from './admin/dialogs/delete-post-dialog/delete-post-dialog.component';
 import { EditUserDialogComponent } from './admin/dialogs/edit-user-dialog/edit-user-dialog.component';
 import { DeleteUserDialogComponent } from './admin/dialogs/delete-user-dialog/delete-user-dialog.component';
 import { MyDatePipe } from './shared/pipes/my-date-pipe';
 import { AddPostRegComponent } from './add-post-reg/add-post-reg/add-post-reg.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
+import { EditPostDialogComponent } from './my-posts/edit-post-dialog/edit-post-dialog.component';
+import { DeletePostuserDialogComponent } from './my-posts/delete-postuser-dialog/delete-postuser-dialog.component';
+import { MyDatePipe3 } from './shared/pipes/my-date-pipe3';
+import { SuccessfulRegisterComponent } from './register/successful-register/successful-register.component';
+ 
 
 @NgModule({
   declarations: [
@@ -41,12 +46,15 @@ import { AddPostRegComponent } from './add-post-reg/add-post-reg/add-post-reg.co
     RegisterComponent,
     AdminUsersComponent,
     AdminPostsComponent,
-    EditPostDialogComponent,
     DeletePostDialogComponent,
     EditUserDialogComponent,
     DeleteUserDialogComponent,
     AddPostRegComponent,
- 
+    MyPostsComponent,
+    EditPostDialogComponent,
+    DeletePostuserDialogComponent,
+    MyDatePipe3,
+    SuccessfulRegisterComponent
   ],
   imports: [
     BrowserModule,

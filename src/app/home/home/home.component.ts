@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { JwtHandlerComponent } from 'src/app/shared/middlewares/jwt-handler/jwt-handler.component';
 
 @Component({
@@ -8,7 +8,13 @@ import { JwtHandlerComponent } from 'src/app/shared/middlewares/jwt-handler/jwt-
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private user: JwtHandlerComponent) {}
+  constructor(private user: JwtHandlerComponent, private renderer : Renderer2) {}
   ngOnInit(){
+    this.scrollToTop();
   }
+
+  scrollToTop() {
+    this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
+  }
+
 }

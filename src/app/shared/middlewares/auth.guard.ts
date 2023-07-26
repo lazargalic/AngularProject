@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     if (this.jwtHandler.IsValidToken()) {
       return true;
     } else {
-      this.router.navigate(['/']); // Preusmeravanje na login stranicu ako korisnik nije ulogovan
+      this.router.navigate(['/login']); // Preusmeravanje na login stranicu ako korisnik nije ulogovan
       return false;
     }
   }

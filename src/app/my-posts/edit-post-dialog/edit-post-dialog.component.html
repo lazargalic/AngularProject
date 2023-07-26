@@ -1,0 +1,134 @@
+<div class="register-container dialog-big-scroll  lg-mb-xx">
+  <form [formGroup]="editPostFormGroup"  >
+    <h2 class=" ">Izmeni objavu : {{data.nameArticle}}</h2>
+                  
+                
+    <div class="form-group">
+      <label for="nameArticle">Ime objave</label>
+      <input type="text" id="nameArticle" [(ngModel)]="data.nameArticle" value="{{data.nameArticle}}" formControlName="nameArticle" required>
+      <div class="error-message" *ngIf="editPostFormGroup.get('nameArticle').invalid && (editPostFormGroup.get('nameArticle').dirty || editPostFormGroup.get('nameArticle').touched)">
+        <div *ngIf="editPostFormGroup.get('nameArticle').hasError('required')">Ime je obavezno polje.</div>
+        <div *ngIf="editPostFormGroup.get('nameArticle').hasError('minlength')">Ime ne sme biti kraće od 2 karaktera.</div>
+        <div *ngIf="editPostFormGroup.get('nameArticle').hasError('maxlength')">Ime ne sme biti duže od 80 karaktera.</div>
+      </div>
+
+    </div>
+  
+    <div class="form-group">
+      <label for="mainPicturePath">Glavna slika (nova opciono)</label>
+      
+      <img src="{{apiUrl}}{{data.mainPicturePath}}" />
+      <input type="file" id="mainPicturePath" (change)="handleMainPictureChange($event)" required>
+      <div class="error-message" *ngIf="editPostFormGroup.get('mainPicturePath').invalid && (editPostFormGroup.get('mainPicturePath').dirty || editPostFormGroup.get('mainPicturePath').touched)">
+        <div *ngIf="editPostFormGroup.get('mainPicturePath').hasError('required')">Glavna slika je obavezna.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Opis (Kratki)</label>
+      <textarea id="description" [(ngModel)]="data.description" value="{{data.description}}"  formControlName="description" required></textarea>
+      <div class="error-message" *ngIf="editPostFormGroup.get('description').invalid && (editPostFormGroup.get('description').dirty || editPostFormGroup.get('description').touched)">
+        <div *ngIf="editPostFormGroup.get('description').hasError('required')">Opis je obavezan.</div>
+        <div *ngIf="editPostFormGroup.get('description').hasError('minlength')">Opis ne sme biti kraći od 1 karaktera.</div>
+        <div *ngIf="editPostFormGroup.get('description').hasError('maxlength')">Opis ne sme biti duži od 745 karaktera.</div>
+      </div>
+
+
+    </div>
+
+    <div class="form-group">
+        <label for="mainContentDescription">Glavni opis  <span class="optionSpan"> &#42;Opciono </span> </label>
+        <textarea id="mainContentDescription" [(ngModel)]="data.mainContent" value="{{data.mainContent}}"   formControlName="mainContent"></textarea>
+        <div class="error-message" *ngIf="editPostFormGroup.get('mainContent').invalid && (editPostFormGroup.get('mainContent').dirty || editPostFormGroup.get('mainContent').touched)">
+          <div *ngIf="editPostFormGroup.get('mainContent').hasError('maxlength')">Glavni Opis ne sme biti duži od 3000 karaktera.</div>
+        </div>
+      </div>
+
+
+    <div class="form-group">
+      <label for="additionalDescription">Dodatni opis <span class="optionSpan"> &#42;Opciono </span></label>
+      <textarea id="additionalDescription" [(ngModel)]="data.additionalDescription" value="{{data.additionalDescription}}"   formControlName="additionalDescription"></textarea>
+      <div class="error-message" *ngIf="editPostFormGroup.get('additionalDescription').invalid && (editPostFormGroup.get('additionalDescription').dirty || editPostFormGroup.get('additionalDescription').touched)">
+        <div *ngIf="editPostFormGroup.get('additionalDescription').hasError('maxlength')">Opis ne sme biti duži od 445 karaktera.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="quote">Citat   <span class="optionSpan"> &#42;Opciono </span> </label>
+      <textarea id="quote" formControlName="quote"   [(ngModel)]="data.quote" value="{{data.quote}}"   ></textarea>
+      <div class="error-message" *ngIf="editPostFormGroup.get('quote').invalid && (editPostFormGroup.get('quote').dirty || editPostFormGroup.get('quote').touched)">
+        <div *ngIf="editPostFormGroup.get('quote').hasError('maxlength')">Citat ne sme biti duži od 385 karaktera.</div>
+      </div>
+    </div>
+ 
+
+
+    <div class="form-group">
+        <label for="countryId">Drzava</label>
+        <select id="countryId" formControlName="countryId"   required (change)="onCountryChange($event)">
+          <option  *ngFor="let country of countries" selected [value]="country.id">{{ country.nameCountry }}</option>
+        </select>
+ 
+      </div> 
+
+
+    <div class="form-group">
+      <label for="townshipId">Opština</label>
+      <select id="townshipId" formControlName="townshipId" required >
+        <!-- <option value="" >Odaberi opštinu</option> -->
+        <ng-container > 
+          <option *ngFor="let township of townships" [value]="township.id" >{{ township.nameTownship }}</option>
+        </ng-container>
+      </select>
+      <div class="error-message" *ngIf="editPostFormGroup.get('townshipId').invalid && (editPostFormGroup.get('townshipId').dirty || editPostFormGroup.get('townshipId').touched)">
+        <div *ngIf="editPostFormGroup.get('townshipId').hasError('required')">Opština je obavezno polje. Odaberite državu da bi vam se prikazale opštine.</div>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label for="beggin">Početak</label>
+      <input type="date" id="beggin"  [(ngModel)]="data.beggin" [value]="data.beggin"    formControlName="beggin" required>
+      <div class="error-message" *ngIf="editPostFormGroup.get('beggin').invalid && (editPostFormGroup.get('beggin').dirty || editPostFormGroup.get('beggin').touched)">
+        <div *ngIf="editPostFormGroup.get('beggin').hasError('required')">Početak je obavezno polje.</div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="end">Kraj</label>
+      <input type="date" id="end" [(ngModel)]="data.end" [value]="data.end"    formControlName="end" required>
+      <div class="error-message" *ngIf="editPostFormGroup.get('end').invalid && (editPostFormGroup.get('end').dirty || editPostFormGroup.get('end').touched)">
+        <div *ngIf="editPostFormGroup.get('end').hasError('required')">Kraj je obavezno polje.</div>
+      </div>
+    </div>
+    <br>
+     
+    <div class="form-group">
+        <label>Dimenziju ne mozete promeniti.</label>
+        <!--  <div>
+          <label>
+            <input type="radio"   [value]="1"   formControlName="categoryDimensionId"  >
+            Polovina ekrana
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio"  [value]="2"   formControlName="categoryDimensionId"      >
+            Celi ekran
+          </label>
+        </div>
+        <div class="error-message" *ngIf="editPostFormGroup.get('categoryDimensionId').invalid && (editPostFormGroup.get('categoryDimensionId').dirty || editPostFormGroup.get('categoryDimensionId').touched)">
+          <div *ngIf="editPostFormGroup.get('categoryDimensionId').hasError('required')">Morate odabrati kategoriju dimenzija.</div>
+        </div>  -->
+      </div>
+     
+
+
+
+  <button mat-button (click)="onCancel()">Poništi</button>
+  <button mat-button color="primary" (click)="onSave()">Sačuvaj</button>
+  </form>
+  
+</div>

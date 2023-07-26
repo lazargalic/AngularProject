@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import { PostsService } from 'src/app/shared/services/posts/posts.service';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { HttpHeaders } from '@angular/common/http';
 import { IPosts } from 'src/app/shared/interfaces/i-posts';
 import { MatDialog } from '@angular/material/dialog';
-import { EditPostDialogComponent } from '../dialogs/edit-post-dialog/edit-post-dialog.component';
+import { EditPostDialogComponent } from '../../my-posts/edit-post-dialog/edit-post-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeletePostDialogComponent } from '../dialogs/delete-post-dialog/delete-post-dialog.component';
 import { ToastrService } from 'ngx-toastr';
@@ -30,17 +30,21 @@ export class AdminPostsComponent implements OnInit, AfterViewInit {
   private headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
 
   
-  displayedColumns: string[] = ['position', 'name', 'author', 'created', 'updated', 'deleted',  /*'update' , */ 'delete' ];
+  displayedColumns: string[] = ['position', 'name', 'author', 'total', 'created', 'updated', 'deleted',  /*'update' , */ 'delete' ];
   myPosts: IPosts[];
   defaultPerPage=999999999;
   defaultPage=1;
   dataSource : any;
  
   
-  constructor(private postsService: PostsService, private dialog: MatDialog, private toastr : ToastrService, private elementRef: ElementRef,) {  }
+  constructor(private postsService: PostsService, private dialog: MatDialog, 
+              private toastr : ToastrService, private elementRef: ElementRef,
+              private renderer : Renderer2) {  }
 
   ngOnInit(): void {
     this.searchAndGetPosts();
+
+    this.scrollToTop();
   }
   
     searchAndGetPosts() : void {
@@ -78,6 +82,12 @@ export class AdminPostsComponent implements OnInit, AfterViewInit {
           
     });
   }  
+
+  scrollToTop() {
+    // Koristite Renderer2 za postavljanje pozicije prozora na vrh stranice
+    this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
+  }
+
 
   /*
 openEditDialog(post: any): void {

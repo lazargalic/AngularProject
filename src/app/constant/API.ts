@@ -16,6 +16,10 @@ export const API = {
     DELETECOMMENT : "user/comment",
     ISREACTED : "user/emotionPost",
     UNREACT: "user/emotionPost",
-    REACT: "user/emotionPost"
+    REACT: "user/emotionPost",
+    MYPOSTS: "user/myPosts",
+    MYPOSTEDIT: "user/articleEdit",
+    VERIFY: "user/validateEmail",
+    REFRESHTOKEN: "token/refreshToken"
 }
 

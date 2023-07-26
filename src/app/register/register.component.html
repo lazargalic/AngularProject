@@ -3,7 +3,7 @@
 
   <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
       <div class="form-group">
-        <label for="firstName">Ime:</label>
+        <label for="firstName">Ime</label>
         <input type="text" id="firstName" formControlName="firstName" class="form-control" required>
         <div class="error-message" *ngIf="registrationForm.get('firstName').invalid && (registrationForm.get('firstName').dirty || registrationForm.get('firstName').touched)">
           <span *ngIf="registrationForm.get('firstName').hasError('required')">Ime je obavezno.</span>
@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="lastName">Prezime:</label>
+        <label for="lastName">Prezime</label>
         <input type="text" id="lastName" formControlName="lastName" class="form-control" required>
         <div class="error-message" *ngIf="registrationForm.get('lastName').invalid && (registrationForm.get('lastName').dirty || registrationForm.get('lastName').touched)">
           <span *ngIf="registrationForm.get('lastName').hasError('required')">Prezime je obavezno.</span>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="email">Email:</label>
+        <label for="email">Email</label>
         <input type="email" id="email" formControlName="email" class="form-control" required>
         <div class="error-message" *ngIf="registrationForm.get('email').invalid && (registrationForm.get('email').dirty || registrationForm.get('email').touched)">
           <span *ngIf="registrationForm.get('email').hasError('required')">Email je obavezan.</span>
@@ -27,23 +27,32 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="password">Lozinka:</label>
+        <label for="password">Lozinka</label>
         <input type="password" id="password" formControlName="password" class="form-control" required>
         <div class="error-message" *ngIf="registrationForm.get('password').invalid && (registrationForm.get('password').dirty || registrationForm.get('password').touched)">
           <span *ngIf="registrationForm.get('password').hasError('required')">Lozinka je obavezna.</span>
-          <span *ngIf="registrationForm.get('password').hasError('pattern')">Šifra mora sadrzati minimalno 8 karaktera i barem jedno veliko slovo ili barem jedan od specijalnih znakova '#?!@$%^&*-'.</span>
+          <span *ngIf="registrationForm.get('password').hasError('pattern')">Šifra mora sadrzati minimalno 8 karaktera, barem jedno veliko slovo ili barem jedan od specijalnih znakova '#?!@$%^&*-'.</span>
         </div>
       </div>
       <div class="form-group">
-        <label for="identityNumber">Broj ličnog dokumenta (jmbg / reg. br ) - opciono:</label>
+        <label for="password">Potvrdite lozinku</label>
+        <input type="password" id="password2" formControlName="password2" class="form-control" required>
+        <div class="error-message" *ngIf="registrationForm.get('password2').invalid && (registrationForm.get('password2').dirty || registrationForm.get('password2').touched)">
+          <span *ngIf="registrationForm.get('password2').hasError('required')">Lozinka je obavezna.</span>
+          <span *ngIf="registrationForm.get('password2').hasError('pattern')">Šifra mora sadrzati minimalno 8 karaktera i barem jedno veliko slovo ili barem jedan od specijalnih znakova '#?!@$%^&*-'.</span>
+          <span *ngIf="registrationForm.get('password2').hasError('mustMatch')">Šifre se ne poklapaju.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="identityNumber">Broj ličnog dokumenta (jmbg | lična karta) <span class="optionSpan"> &#42;Opciono </span></label>
         <input type="text" id="identityNumber" formControlName="identityNumber" class="form-control">
         <div class="error-message" *ngIf="registrationForm.get('identityNumber').invalid && (registrationForm.get('identityNumber').dirty || registrationForm.get('identityNumber').touched)">
-          <span *ngIf="registrationForm.get('identityNumber').hasError('maxlength')">Broj lične karte ne sme biti duži od 20 karaktera.</span>
-          <span *ngIf="registrationForm.get('identityNumber').hasError('minlength')">Broj lične karte mora imati najmanje 6 karaktera.</span>
+          <span *ngIf="registrationForm.get('identityNumber').hasError('maxlength')">Broj dokumenta ne sme biti duži od 20 karaktera.</span>
+          <span *ngIf="registrationForm.get('identityNumber').hasError('minlength')">Broj dokumenta mora imati najmanje 6 karaktera.</span>
         </div>
       </div>
       <div class="form-group">
-        <label for="phoneNumber">Broj telefona - opciono: </label>
+        <label for="phoneNumber">Broj telefona <span class="optionSpan"> &#42;Opciono </span> </label>
         <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
         <div class="error-message" *ngIf="registrationForm.get('phoneNumber').invalid && (registrationForm.get('phoneNumber').dirty || registrationForm.get('phoneNumber').touched)">
           <span *ngIf="registrationForm.get('phoneNumber').hasError('maxlength')">Broj telefona ne sme biti duži od 15 karaktera.</span>

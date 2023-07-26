@@ -35,7 +35,7 @@
                                                     <b class="fn">{{com.user}}</b>
                                                 </div>
                                                 <div class="comment-metadata">
-                                                    <a href="#">{{com.date}}</a>										
+                                                    <a href="#">{{com.date | samoDatumPipe}}</a>										
                                                 </div>
                                                 <div class="reply" *ngIf="isLoggedIn">
                                                     <a rel="nofollow" id="ico-replay-{{com.idComment}}" class="comment-reply-link" (click)="showReplyComment(com.idComment)"><i class="fa fa-reply"></i></a>
@@ -64,8 +64,8 @@
 
                                     <ng-container *ngIf="com.childCommentts.length > 0">
                                         <ng-container *ngFor=" let com of com.childCommentts"> 
-                                            <ol class="children bezi-desno">
-                                                <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+                                            <ol class="children">
+                                                <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent  bezi-desno ">
                                                     <div class="comment-body pblazar">
                                                         <footer class="comment-meta">
                                                             <div class="comment-author vcard">
@@ -73,7 +73,7 @@
                                                                 <b class="fn">{{com.user}}</b>
                                                             </div>
                                                             <div class="comment-metadata">
-                                                                <a href="#">{{com.date}}</a>
+                                                                <a href="#">{{com.date | samoDatumPipe}}</a>
                                                             </div>
                                                             <div class="reply">
                                                                 <a rel="nofollow" id="ico-delete-{{com.idComment}}" class="lg-ml-x  comment-reply-link "

@@ -21,7 +21,7 @@ import { MyDatePipe } from './pipes/my-date-pipe';
        PostsModule,
      SingleModule, 
      AddPostModule,
-
+    
      
    //Fale mi ova dva modula ali radi mi sve bez njih . //Fale mi ova dva modula ali radi mi sve bez njih , kad ih dodam crne mi pipe ,a ni u sharedu ih ne pozuvam nzm odakle se pozivaju
   ],

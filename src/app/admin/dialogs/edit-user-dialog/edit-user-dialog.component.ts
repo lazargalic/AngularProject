@@ -30,8 +30,8 @@ export class EditUserDialogComponent implements OnInit{
       email: new FormControl ('', [Validators.required, Validators.email]),
       identityNumber: new FormControl ('', [Validators.maxLength(20), Validators.minLength(6)]),
       phoneNumber: new FormControl ('', [Validators.maxLength(15), Validators.minLength(6)]),
-      roleId: new FormControl(this.data.role.roleId),
-      isActive: new FormControl(this.data.isActive),
+      roleId: new FormControl(this.data.role.roleId, []),
+      isActive: new FormControl(this.data.isActive, []),
       idHidden: new FormControl('')
     });
   }

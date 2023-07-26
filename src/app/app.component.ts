@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'LazarGalic104_20_Angular';
   
-  constructor(){ }
+  constructor(){ 
+
+  }
 
    
 

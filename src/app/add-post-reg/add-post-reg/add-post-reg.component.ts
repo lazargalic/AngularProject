@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { API } from 'src/app/constant/API';
@@ -30,10 +30,8 @@ export class AddPostRegComponent implements OnInit {
   constructor(private countryService : CountryService,
               private townshipService : TownshipService,
               private addPostRegService : AddPostRegService,
-              private toastr: ToastrService) { 
- 
- 
-                
+              private toastr: ToastrService,
+              private renderer : Renderer2) { 
               }
 
 
@@ -49,7 +47,14 @@ export class AddPostRegComponent implements OnInit {
         console.log(xhr);
       }
     })
+    this.scrollToTop();
  }
+
+ scrollToTop() {
+  this.renderer.setProperty(document.documentElement, 'scrollTop', 0);
+}
+
+
 
  onCountryChange(event: Event) {
   const selectedValue = (event.target as HTMLSelectElement).value;

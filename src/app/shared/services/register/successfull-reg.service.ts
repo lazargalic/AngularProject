@@ -7,10 +7,11 @@ import { API } from 'src/app/constant/API';
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService extends ApiService<any>{
+export class SuccessfullRegService extends ApiService<any>{
 
   constructor(client : HttpClient) {
-    super(client, CONFIGURATION.APIURL + API.REGISTER);
+    super(client, CONFIGURATION.APIURL + API.VERIFY);
   }
+  
   
 }

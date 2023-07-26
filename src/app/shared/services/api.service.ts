@@ -55,7 +55,7 @@ export abstract class ApiService<T> {
     if (queryParams.length > 0) {
        urlFinal += `?${queryParams.join('&')}`;
     }
-    console.log(urlFinal);  
+   // console.log(urlFinal);  
 
     return this.client.get<T>(urlFinal,  {headers});  //headers nzm sta je 
   }
@@ -69,10 +69,16 @@ export abstract class ApiService<T> {
       return this.client.get<T>(this.path + "/" + id, options);
   }
 
+  getGuid(guid : string, headers?: HttpHeaders): Observable<T> {
+    let options = { headers };
+    return this.client.get<T>(this.path + "/" + guid, options);
+  }
+
   create(dataToSend: any, headers?: HttpHeaders): Observable<any> {
     let options = { headers, body: dataToSend };
     return this.client.post(this.path, dataToSend, options);
   }
+
 
   createFormData(formData: FormData, headers?: HttpHeaders): Observable<any> {
     console.log(formData);
@@ -87,6 +93,16 @@ export abstract class ApiService<T> {
   update(dataToSend: any, headers?: any): Observable<any>  {
     let options = { headers, body: dataToSend };
     return this.client.put( this.path, dataToSend, options);
+  }
+
+  updatePatchFormData(formData: FormData, headers?: HttpHeaders): Observable<any> {
+    console.log(formData);
+    formData.forEach((value, key) => {
+      console.log(key, value);
+    });
+
+    let options = { headers };
+    return this.client.patch(this.path, formData, options);
   }
 
   delete(dataToSend: any , headers?: any): Observable<any>  {

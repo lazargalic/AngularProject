@@ -60,7 +60,8 @@ export interface IAllPosts {
                         date:string,
                     }]
                 },
-            ]
+            ],
+            totalPrice : number
         }]
 
     }

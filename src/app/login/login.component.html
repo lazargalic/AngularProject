@@ -2,7 +2,7 @@
     <h2>Logovanje</h2>
     <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
       <div class="form-group">
-        <label for="email">Email:</label>
+        <label for="email">Email</label>
         <input type="email" id="email" formControlName="email" class="form-control" required>
         <div class="error-message" *ngIf="loginForm.get('email').invalid && (loginForm.get('email').dirty || loginForm.get('email').touched)">
           <span *ngIf="loginForm.get('email').hasError('required')">Email je obavezan.</span>
@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="password">Šifra:</label>
+        <label for="password">Šifra</label>
         <input type="password" id="password" formControlName="password" class="form-control" required>
         <div class="error-message" *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
           <span *ngIf="loginForm.get('password').hasError('required')">Šifra je obavezna.</span>
